@@ -59,3 +59,45 @@ speechSynthesis.speak(msg);
 
 </body>
 </html>
+<script>
+const words = [
+  {en:"go home", jp:"帰宅する"},
+  {en:"go to school", jp:"学校へ行く"},
+  {en:"get up", jp:"起きる"},
+  {en:"go to bed", jp:"寝る"},
+  {en:"play soccer", jp:"サッカーをする"},
+  {en:"play the piano", jp:"ピアノを弾く"},
+  {en:"study English", jp:"英語を勉強する"},
+  {en:"watch TV", jp:"テレビを見る"},
+  {en:"read a book", jp:"本を読む"},
+  {en:"listen to music", jp:"音楽を聴く"}
+];
+
+let index = 0;
+
+function showWord(){
+  document.getElementById("word").innerText = words[index].en;
+  document.getElementById("jp").innerText = words[index].jp;
+}
+
+function speak(){
+  const msg = new SpeechSynthesisUtterance(words[index].en);
+  msg.lang = "en-US";
+  speechSynthesis.speak(msg);
+}
+
+function nextWord(){
+  index = (index + 1) % words.length;
+  showWord();
+}
+
+function prevWord(){
+  index = (index - 1 + words.length) % words.length;
+  showWord();
+}
+
+showWord();
+</script>
+
+<button onclick="prevWord()">⬅ 前へ</button>
+<button onclick="nextWord()">➡ 次へ</button>
