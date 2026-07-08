@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英語発音練習</title>
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+text-align:center;
+padding:20px;
+}
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+max-width:500px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+button{
+padding:12px 20px;
+margin:8px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+.word{
+font-size:36px;
+margin:20px;
+}
+.jp{
+font-size:22px;
+color:#666;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>英語発音練習</h1>
+
+<div class="word" id="word">go home</div>
+<div class="jp" id="jp">帰宅する</div>
+
+<button onclick="speak()">▶️ 発音</button>
+
+<script>
+function speak(){
+let msg=new SpeechSynthesisUtterance(document.getElementById("word").innerText);
+msg.lang="en-US";
+speechSynthesis.speak(msg);
+}
+</script>
+
+</div>
+
+</body>
+</html>
